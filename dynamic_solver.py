@@ -15,7 +15,7 @@ def dynamic_solver_func(ncells=10,  # количество узлов на за�
         материальных точек (частиц).
     """
     # генерация сетки на заданном интервале времени
-    mesh = fen.IntervalMesh(ncells, 0, end_time - init_time)
+    mesh = fen.IntervalMesh(ncells, 0, end_time-init_time)
 
     welm = fen.MixedElement([fen.FiniteElement('Lagrange', fen.interval, 2),
                              fen.FiniteElement('Lagrange', fen.interval, 2),
