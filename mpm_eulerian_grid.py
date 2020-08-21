@@ -24,7 +24,7 @@ va = []
 xa = []
 
 while t < time:
-    N1 = 1 - np.absolute(xp - nodes[0])
+    N1 = 1 - np.absolute(xp - nodes[0])  ###
     N2 = 1 - np.absolute(xp - nodes[1])
 
     dN1 = - 1 / L
