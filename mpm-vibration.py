@@ -154,11 +154,11 @@ while t < time :
             v2 = 0
             if nmass[esctr[0]] > tol :
                 vp[pid] = vp[pid] + dtime * niforce[esctr[0]]/nmass[esctr[0]]
-                v1 = nmomentum[esctr[0]])/nmass[esctr[0]]
+                v1 = nmomentum[esctr[0]]/nmass[esctr[0]]
                 xp[pid] = xp[pid] + dtime * N1 * v1
             if nmass[esctr[1]] > tol :
                 vp[pid] = vp[pid] + dtime * niforce[esctr[1]]/nmass[esctr[1]] 
-                v2 = nmomentum[esctr[1]])/nmass[esctr[1]]
+                v2 = nmomentum[esctr[1]]/nmass[esctr[1]]
                 xp[pid] = xp[pid] + dtime * N2 * v2
             # if (esctr[0] == 1) v1 = 0
             Lp = dN1 * v1 + dN2 * v2              # gradient velocity
