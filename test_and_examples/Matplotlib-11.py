@@ -12,7 +12,8 @@ import matplotlib.patches as mpatches
 fig = plt.figure()
 
 plt.scatter(0.0, 0.0)
-mpatches.Polygon([[0,0],[1,0],[0,1]])
+plt.plot([0, 1, 0, 2], [1, 0, 1, 3])
 
+plt.xlim(-1.5, 1.5)
+plt.ylim(-1.5, 1.5)
 plt.show()
-    

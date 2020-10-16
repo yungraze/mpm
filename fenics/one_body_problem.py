@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import fenics as fen
 import mshr
-from dynamic_solver import dynamic_solver_func
+from fenics.dynamic_solver import dynamic_solver_func
 
 # -------------Create DOLPHIN mesh and define function space----------
 ae = 1.0
