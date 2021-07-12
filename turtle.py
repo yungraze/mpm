@@ -1,46 +1,63 @@
 import turtle, time
 import random
+import numpy as np
 
 window = turtle.Screen()
 window.setup(700, 700)
+window.bgcolor('black')
 
-board = turtle.Turtle()
-board.speed(0)
-board.up()
-board.hideturtle()
-board.pensize(5)
-board.goto(300, 300)
-board.down()
-board.goto(300, -300)
-board.goto(-300, -300)
-board.goto(-300, 300)
-board.goto(300, 300)
+sun = turtle.Turtle()
+sun.shape('circle')
+sun.turtlesize(3)
+sun.color('yellow')
 
-balls = []
-count = 5
+planets = []
+# planets.append([planet, a, b, c, T])
 
-for i in range(count):
-    ball = turtle.Turtle()
-    ball.shape('circle')
+earth = turtle.Turtle()
+a = 100
+b = 100
+T = 500
+c = np.sqrt(a**2 - b**2)
+earth.shape('circle')
+earth.color('green')
+earth.turtlesize(0.8)
+earth.speed(0)
+earth.up()
+earth.goto(a-c, 0)
+earth.down()
+planets.append([earth, a, b, c, T])
 
-    randx = random.randint(-250, 250)
-    randy = random.randint(-250, 250)
-    ball.speed(0)
-    ball.up()
-    ball.goto(randx, randy)
-    ball.down()
+merc = turtle.Turtle()
+a = 39
+b = 39
+T = 100
+c = np.sqrt(a**2 - b**2)
+merc.shape('circle')
+merc.turtlesize(0.5)
+merc.color('brown')
+merc.speed(0)
+merc.up()
+merc.goto(a-c, 0)
+merc.down()
+planets.append([merc, a, b, c, T])
 
-    dx = random.randint(-5, 5)
-    dy = random.randint(-5, 5)
+comet = turtle.Turtle()
+a = 259
+b = 150
+T = 700
+c = np.sqrt(a**2 - b**2)
+comet.shape('circle')
+comet.turtlesize(0.5)
+comet.color('brown')
+comet.speed(0)
+comet.up()
+comet.goto(a-c, 0)
+comet.down()
+planets.append([comet, a, b, c, T])
 
-    balls.append([ball, dx, dy])
 
-
-for i in range(0, 1000, 1):
-    for j in range(count):
-        x, y = balls[j][0].position()
-        if x+balls[j][1] >= 300 or x+balls[j][1] <= -300:
-            balls[j][1] = - balls[j][1]
-        if y+balls[j][2] >= 300 or y+balls[j][2] <= -300:
-            balls[j][2] = - balls[j][2]
-        balls[j][0].goto(x+balls[j][1], y+balls[j][2])
+for t in range(0, 3000, 1):
+    for j in range(len(planets)):
+        planets[j][0].goto(planets[j][1]*np.cos(2*np.pi/planets[j][4]*t) - planets[j][3],
+                           planets[j][2]*np.sin(2*np.pi/planets[j][4]*t))
